@@ -35,17 +35,22 @@ function Banner() {
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
+        backgroundColor: "rgb(0,0,0,0.4)",
       }}
     >
       <div className="banner-contents">
         <h1 className="banner-title">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
-        <div className="banner-buttons">
-          <button className="banner-button">Play</button>
-          <button className="banner-button">My List</button>
-        </div>
         <h1 className="banner-description">{truncate(movie.overview, 150)}</h1>
+        <div className="banner-buttons">
+          <button onClick={() => movie?.video} className="banner-button">
+            <i class="bi bi-play-fill"></i> Play
+          </button>
+          <button className="banner-button">
+            <i class="bi bi-exclamation-circle-fill"></i> Details
+          </button>
+        </div>
       </div>
       <div className="banner--fadeBottom"></div>
     </header>
